@@ -3,7 +3,6 @@ var styles = require('../styles');
 var PropTypes = React.PropTypes;
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
-console.log(Link)
 
 function puke(object) {
 	return <pre>{JSON.stringify(object, null, ' ')}</pre>
