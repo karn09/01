@@ -12,9 +12,15 @@ var ConfirmBattleContainer = React.createClass({
 	},
 	componentDidMount: function () {
 		var query = this.props.location.query;
-		console.log('componentDidMount');
 		// Fetch info from github then update state
-		githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+		github.getPlayersInfo([query.playerOne, query.playerTwo])
+			.then(function(players) {
+				// do something with players
+				this.setState({
+					isLoading: false,
+					playersInfo: [players[0], players[1]]
+				})
+			}.bind(this))
 	},
 	componentWillMount: function () {
 		console.log('componentWillMount');
@@ -26,7 +32,12 @@ var ConfirmBattleContainer = React.createClass({
 		console.log('componentWillUnmount');
 	},
 	render: function () {
-		return (<ConfirmBattle isLoading={this.state.isLoading} playersInfo={this.state.playersInfo}/>);
+		return (
+			<ConfirmBattle
+				isLoading={this.state.isLoading}
+				playersInfo={this.state.playersInfo}
+				/>
+		);
 	}
 });
 
