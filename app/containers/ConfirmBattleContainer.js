@@ -8,7 +8,7 @@ var ConfirmBattleContainer = React.createClass({
 	},
 	getInitialState: function () {
 		console.log('getInitialState')
-		return {isLoading: true, playerInfo: []}
+		return {isLoading: true, playersInfo: []}
 	},
 	componentDidMount: function () {
 		var query = this.props.location.query;
@@ -27,7 +27,7 @@ var ConfirmBattleContainer = React.createClass({
 		this.context.router.push({
 			pathname: '/results',
 			state: {
-				playerInfo: this.state.playersInfo
+				playersInfo: this.state.playersInfo
 			}
 		})
 	},
