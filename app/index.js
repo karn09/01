@@ -7,6 +7,7 @@ ReactDOM.render(
 	document.getElementById('app')
 );
 
+
 // var HelloUser = React.createClass({
 //   render: function(){
 //     return (
